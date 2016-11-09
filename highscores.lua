@@ -62,22 +62,26 @@ function scene:create( event )
 	local latestScore = composer.getVariable( "finalScore" )
     local fromsce = event.params.fromScene
     print(fromsce)
-	-- Load the previous scores
-	loadScores()
+    
+		loadScores()
+    -- Check from what scene is called
+    if fromsce == "game" then
+		-- Load the previous scores
 
-	-- Add our score to the end of the list
-	scoresTable[ #scoresTable + 1] = latestScore
-	
-	-- Now sort the table
-	local function compare( a, b )
-		return a > b
-	end
-	if #scoresTable > 1 then 
-		table.sort(scoresTable, compare)
-	end
+		-- Add our score to the end of the list
+		scoresTable[ #scoresTable + 1] = latestScore
+		
+		-- Now sort the table
+		local function compare( a, b )
+			return a > b
+		end
+		if #scoresTable > 1 then 
+			table.sort(scoresTable, compare)
+		end
 
-	-- go ahead and save the scores
-	saveScores()
+		-- go ahead and save the scores
+		saveScores()
+    end
 
 	local background = display.newImageRect( sceneGroup, "background.png", 800, 1400 )
 	background.x = display.contentCenterX

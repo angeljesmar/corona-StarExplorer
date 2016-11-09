@@ -34,9 +34,9 @@ function scene:create( event )
 	background.x = display.contentCenterX
 	background.y = display.contentCenterY
 
-	local title = display.newImageRect( sceneGroup, "title.png", 500, 80 )
+	local title = display.newImageRect( sceneGroup, "title2.png", 550, 100 )
 	title.x = display.contentCenterX
-	title.y = 200
+	title.y = 300
 
 	local playButton = display.newText( sceneGroup, "Play", display.contentCenterX, 700, native.systemFont, 44 )
 	playButton:setFillColor( 0.82, 0.86, 1 )
